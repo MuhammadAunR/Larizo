@@ -1,22 +1,11 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0A0A0B;   /* True near-black */
-  --foreground: #E6E6E6;   /* Soft light gray  */
-  --accent:     #FFEE3B;   /*  — strong contrast highlight */
-  --surface:    #141416;   /* Elevated charcoal for cards/sections */
-}
+@theme {
+  --color-background: #0A0A0B;
+  --color-foreground: #E6E6E6;
+  --color-accent:     #FFEE3B;
+  --color-surface:    #141416;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent:     var(--accent);
-  --color-surface:    var(--surface);
-  --font-sans: var(--font-inter);       
-  --font-mono: var(--font-inter);       
-  --font-serif: var(--font-cormorant); 
-}
-
-body{
-  color: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
 }
