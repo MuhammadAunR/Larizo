@@ -3,7 +3,7 @@
 :root {
   --background: #0D0A08;   /* Near black charcoal */
   --foreground: #F5EDD8;   /* Warm cream — primary text */
-  --accent:     #C9741A;   /* Amber gold — logo & CTAs */
+  --accent:     #FFEE3B;   /* Amber gold — logo & CTAs */
   --surface:    #1A1410;   /* Deep charcoal — cards/sections */
 }
 
@@ -14,6 +14,9 @@
   --color-surface:    var(--surface);
   --font-sans: var(--font-inter);       
   --font-mono: var(--font-inter);       
-  --font-serif: var(--font-cormorant);   
-  --font-script: var(--font-script);    /* ← script */
+  --font-serif: var(--font-cormorant); 
+}
+
+body{
+  color: var(--foreground);
 }
