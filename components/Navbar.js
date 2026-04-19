@@ -45,7 +45,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-            <section className={`absolute z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-px'} overflow-hidden`}>
+            <section className={`fixed z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-px'} overflow-hidden`}>
                 <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
                     {navOptions.map(opt => {
                         return <li key={opt.path} className='relative group'>

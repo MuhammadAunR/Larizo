@@ -11,7 +11,7 @@ const Cart = () => {
     return (
         <main className='w-full flex'>
 
-            <section onClick={toggleCart} className={`bg-gray-600/50 backdrop-blur-lg h-screen fixed top-0 z-200 w-[calc(100%-400px)] ${isCartOpen ? 'block' : 'hidden'}`}>
+            <section onClick={toggleCart} className={`bg-surface/70 backdrop-blur-lg h-screen fixed top-0 z-200 w-[calc(100%-400px)] ${isCartOpen ? 'block' : 'hidden'}`}>
             </section>
 
             <aside className={`bg-surface h-screen w-100 fixed top-0 right-0 z-200 transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
