@@ -1,6 +1,8 @@
 import { Cormorant_Garamond, Inter, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Cart from "@/components/Cart";
+import AppWrapper from "./context/AppWrapper";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -32,8 +34,11 @@ export default function RootLayout({ children }) {
       className={`${cormorant.variable} ${inter.variable} ${script.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Navbar />
-        {children}
+        <AppWrapper>
+          <Navbar />
+          <Cart />
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );

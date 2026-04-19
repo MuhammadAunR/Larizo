@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0D0A08;   /* Near black charcoal */
-  --foreground: #F5EDD8;   /* Warm cream — primary text */
-  --accent:     #FFEE3B;   /* Amber gold — logo & CTAs */
-  --surface:    #1A1410;   /* Deep charcoal — cards/sections */
+  --background: #0A0A0B;   /* True near-black */
+  --foreground: #E6E6E6;   /* Soft light gray  */
+  --accent:     #FFEE3B;   /*  — strong contrast highlight */
+  --surface:    #141416;   /* Elevated charcoal for cards/sections */
 }
 
 @theme inline {
