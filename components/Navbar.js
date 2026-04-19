@@ -1,7 +1,7 @@
 'use client'
 import { Menu, ShoppingBag } from 'lucide-react';
 import Link from 'next/link'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hamburger from "@/components/Hamburger";
 import { useCart } from '@/app/context/CartContext';
 
@@ -9,6 +9,7 @@ import { useCart } from '@/app/context/CartContext';
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [yScroll, setYScroll] = useState(false)
     const { toggleCart } = useCart()
 
     const navOptions = [
@@ -22,11 +23,26 @@ const Navbar = () => {
         setIsOpen(!isOpen)
     }
 
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setYScroll(true)
+            } else {
+                setYScroll(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
         <>
-            <nav className={`flex items-center justify-between py-5 px-5 md:px-10 fixed top-0 z-100 w-full ${isOpen ? 'backdrop-blur-3xl' : 'backdrop-blur-none'}`}>
+            <nav className={`flex items-center justify-between py-5 px-5 md:px-10 fixed top-0 z-100 w-full transition-all ease-linear ${isOpen ? 'backdrop-blur-3xl' : 'backdrop-blur-none'} ${yScroll ? 'bg-black backdrop-blur-md h-20' : 'bg-black/10 h-25'}`}>
                 <div className={``}>
-                    <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer'>Larizo</Link>
+                    <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer italic text-accent'>Larizo</Link>
                 </div>
                 <ul className='flex items-center gap-4 lg:gap-10'>
                     {navOptions.map(opt => {
@@ -45,7 +61,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-            <section className={`fixed z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-px'} overflow-hidden`}>
+            <section className={`fixed z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-0'} overflow-hidden`}>
                 <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
                     {navOptions.map(opt => {
                         return <li key={opt.path} className='relative group'>
