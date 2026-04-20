@@ -1,12 +1,15 @@
 'use client'
 import { useCart } from '@/app/context/CartContext'
-import { X } from 'lucide-react'
+import { Trash, X } from 'lucide-react'
 import React from 'react'
+import Button from './ButtonUi'
+import Image from 'next/image'
+import { motion } from "framer-motion"
 
 
 const Cart = () => {
 
-    const { toggleCart, isCartOpen } = useCart()
+    const { toggleCart, isCartOpen, cartItems, handleSubTotal } = useCart()
 
     return (
         <main className='w-full flex'>
@@ -17,16 +20,53 @@ const Cart = () => {
             <aside style={{ backgroundColor: 'var(--surface)' }} className={`h-screen w-100 fixed top-0 right-0 z-200 transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
                 <div className='flex items-center justify-between px-5 py-6.5 border-b-2 border-accent'>
-                    <h3 className='text-2xl'>Your Cart</h3>
+                    <h3 className='text-2xl font-semibold'>Your Cart</h3>
                     <span onClick={toggleCart}>
                         <X size={28} className='cursor-pointer hover:rotate-180 hover:text-accent transition-all ease-linear' />
                     </span>
                 </div>
-                <section>
+                <section className='h-135 overflow-y-auto my-5 space-y-2'>
+                    {cartItems.map(item => {
+                        return <div key={item.id} className='flex items-center gap-3 p-3 mx-2 hover:mx-0 transition-all ease-linear bg-background relative group'>
 
+                            <motion.span
+                                whileTap={{ scale: 0.95 }}
+                                className='absolute top-2 right-2 group-hover:opacity-100 opacity-0 transition-opacity ease-linear cursor-pointer'>
+                                <Trash size={16} color='red' />
+                            </motion.span>
+                            <div className='relative w-15 h-15 overflow-hidden shrink-0'>
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    sizes="60px"
+                                    className='object-cover rounded-full'
+                                />
+                            </div>
+
+                            <div className='flex flex-col flex-1'>
+                                <h4 className='truncate'>{item.name}</h4>
+                                <span className='text-sm text-gray-400'>{item.type}</span>
+                            </div>
+
+                            <span className='text-sm font-semibold whitespace-nowrap flex flex-col items-center justify-center'>
+                                <span className='text-accent'>
+                                    <span className='text-[10px]'>PKR</span> {(item.price) * (item.quantity)}
+                                </span>
+                                <span className=''>QTY: {item.quantity}</span>
+                            </span>
+
+                        </div>
+                    })}
                 </section>
-                <div>
-
+                <div className='px-5 space-y-5 border-t-2 border-accent py-2'>
+                    <div className='flex items-center justify-between'>
+                        <h3 className='text-2xl font-semibold'>Subtotal</h3>
+                        <span className='text-red-500 text-xl font-semibold'><span className='text-xs'>PKR</span> {handleSubTotal}</span>
+                    </div>
+                    <span className='flex flex-col items-end'>
+                        <Button text={'Checkout'} classes='px-7 py-2' />
+                    </span>
                 </div>
 
             </aside>

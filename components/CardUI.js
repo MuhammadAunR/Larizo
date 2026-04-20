@@ -1,10 +1,13 @@
+'use client'
 import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { motion } from "framer-motion"
+import { useCart } from '@/app/context/CartContext'
 
 
 const CardUI = ({ product }) => {
+    const { handleCartItems } = useCart()
     return (
         <div className='w-75 h-100 relative group/card overflow-hidden'>
             <div className="relative w-full h-full">
@@ -41,9 +44,10 @@ const CardUI = ({ product }) => {
                         PKR {product.price.toLocaleString()}
                     </span>
 
-                    <motion.button 
-                    whileTap={{ scale: 0.95 }}
-                    className='bg-accent px-7 py-2 text-black flex items-center gap-1 relative overflow-hidden group/btn transition-all ease-linear'>
+                    <motion.button
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleCartItems(product)}
+                        className='bg-accent px-7 py-2 text-black flex items-center gap-1 relative overflow-hidden group/btn transition-all ease-linear'>
                         <span className='absolute -left-10 opacity-0 group-hover/btn:left-3 group-hover/btn:opacity-100 transition-all ease-linear duration-300'>
                             <ShoppingCart size={20} />
                         </span>
