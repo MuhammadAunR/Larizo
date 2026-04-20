@@ -8,7 +8,7 @@ const ExperienceSection = () => {
 
       <h2 className='text-5xl font-semibold font-serif pt-20'>The Experience</h2>
 
-      <section className='flex items-center justify-center gap-x-20 gap-y-2 py-10'>
+      <section className='flex items-center justify-center flex-wrap gap-x-20 gap-y-2 py-10'>
 
         {experiences.map(exp => {
           return <div key={exp.title} className='flex flex-col gap-3 items-center justify-center w-55 h-60 px-4 bg-background border border-transparent hover:border-accent transition-all ease-linear duration-500 cursor-pointer'>

@@ -1,6 +1,8 @@
 import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from "framer-motion"
+
 
 const CardUI = ({ product }) => {
     return (
@@ -39,14 +41,16 @@ const CardUI = ({ product }) => {
                         PKR {product.price.toLocaleString()}
                     </span>
 
-                    <button className='bg-accent px-7 py-2 text-black flex items-center gap-1 relative overflow-hidden group/btn transition-all ease-linear'>
+                    <motion.button 
+                    whileTap={{ scale: 0.95 }}
+                    className='bg-accent px-7 py-2 text-black flex items-center gap-1 relative overflow-hidden group/btn transition-all ease-linear'>
                         <span className='absolute -left-10 opacity-0 group-hover/btn:left-3 group-hover/btn:opacity-100 transition-all ease-linear duration-300'>
                             <ShoppingCart size={20} />
                         </span>
                         <span className='group-hover/btn:translate-x-4 transition-all ease-linear duration-300'>
                             Add to Cart
                         </span>
-                    </button>
+                    </motion.button>
                 </div>
 
             </div>
