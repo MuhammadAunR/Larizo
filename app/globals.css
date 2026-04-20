@@ -16,3 +16,7 @@
   --font-sans: var(--font-inter);
   --font-serif: var(--font-cormorant);
 }
+
+html {
+  will-change: transform;
+}

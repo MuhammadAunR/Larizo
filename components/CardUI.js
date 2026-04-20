@@ -1,11 +1,19 @@
 import { ShoppingCart } from 'lucide-react'
+import Image from 'next/image'
 import React from 'react'
 
 const CardUI = ({ product }) => {
     return (
         <div className='w-75 h-100 relative group/card overflow-hidden'>
-            <div>
-                <img src={product.image} alt={product.name} className='w-75 h-100 object-cover group-hover/card:brightness-50 transition-all ease-linear duration-500' />
+            <div className="relative w-full h-full">
+                <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                    loading='lazy'
+                    className='object-cover group-hover/card:brightness-50 transition-all ease-linear duration-500'
+                />
             </div>
             <div className={`absolute top-2 left-2 border-2 px-3 py-1 ${product.gender === 'Men' ? 'bg-blue-950/20 text-sm text-blue-950 border-blue-950/50' : product.gender === 'Unisex' ? 'bg-neutral-500/20 text-sm text-neutral-400 border-neutral-500/50' : 'bg-pink-950/20 text-sm text-pink-950 border-pink-950/50'}`}>
                 {product.gender}
