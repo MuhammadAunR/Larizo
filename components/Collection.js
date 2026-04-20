@@ -31,7 +31,7 @@ const Collection = () => {
     }
 
     return (
-        <main className='w-10/12 mx-auto py-10'>
+        <main id='collections' className='w-10/12 mx-auto py-10'>
 
             <section>
                 <h2 className='text-5xl font-semibold font-serif pt-20'>Scent Families</h2>

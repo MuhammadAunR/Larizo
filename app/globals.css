@@ -17,6 +17,19 @@
   --font-serif: var(--font-cormorant);
 }
 
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 html {
-  will-change: transform;
+    will-change: auto !important;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
 }

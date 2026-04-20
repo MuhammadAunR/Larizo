@@ -4,7 +4,7 @@ import Button from './ButtonUi'
 
 const FooterSection = () => {
     return (
-        <main className='bg-surface h-fit rounded-2xl my-6 mx-2 md:m-12'>
+        <main id='contact' className='bg-surface h-fit rounded-2xl my-6 mx-2 md:m-12'>
 
             <section className='flex items-center justify-between gap-5 px-5 md:px-20 py-10 max-lg:flex-col max-lg:items-start'>
                 <div>
@@ -19,10 +19,10 @@ const FooterSection = () => {
                     <div className='flex flex-col gap-7'>
                         <h6 className='text-2xl font-serif'>Company</h6>
                         <ul className='flex flex-col gap-1 font-light'>
-                            <li>Home</li>
-                            <li>Collection</li>
-                            <li>About</li>
-                            <li>Contact</li>
+                            <a href='#home'>Home</a>
+                            <a href='#collection'>Collection</a>
+                            <a href='#about'>About</a>
+                            <a href='#contact'>Contact</a>
                         </ul>
                     </div>
                     <div className='flex flex-col gap-7'>

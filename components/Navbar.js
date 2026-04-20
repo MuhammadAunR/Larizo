@@ -1,5 +1,5 @@
 'use client'
-import { Menu, ShoppingBag } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import Hamburger from "@/components/Hamburger";
@@ -13,10 +13,10 @@ const Navbar = () => {
     const { toggleCart } = useCart()
 
     const navOptions = [
-        { option: "Home", path: "/" },
-        { option: "Collections", path: "/collections" },
-        { option: "About", path: "/about" },
-        { option: "Contact", path: "/contact" },
+        { option: "Home", path: "#home" },
+        { option: "Collections", path: "#collections" },
+        { option: "About", path: "#about" },
+        { option: "Contact", path: "#contact" },
     ];
 
     const handleNavbarDropdown = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <ul className='flex items-center gap-4 lg:gap-10'>
                     {navOptions.map(opt => {
                         return <li key={opt.path} className='max-lg:hidden group relative'>
-                            <Link href={opt.path} className='uppercase hover:text-accent transition-colors ease-linear cursor-pointer'>{opt.option}</Link>
+                            <a href={opt.path} className='uppercase hover:text-accent transition-colors ease-linear cursor-pointer'>{opt.option}</a>
                             <span className='absolute h-px w-0 group-hover:w-full bg-accent transition-all ease-linear left-0 bottom-0'></span>
                         </li>
                     })}
