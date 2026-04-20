@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { motion } from "framer-motion"
+import Button from './ButtonUi'
 
 const HeroSection = () => {
     return (
@@ -27,15 +28,7 @@ const HeroSection = () => {
                     className='text-center text-lg font-light'>Fragrances that define your presence. Crafted for lasting impressions, every scent reflects elegance, confidence, and individuality.
                 </motion.p>
 
-                <motion.button
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    whileTap={{ scale: 0.95 }}
-                    className='bg-accent text-black px-7 py-4 text-xl font-light uppercase cursor-pointer relative z-20 group hover:text-foreground transition-colors ease-linear duration-700 border-2 border-surface hover:border-accent'>Explore Collection
-                    <span className='bg-surface absolute w-0 h-full left-0 top-0 group-hover:w-full transition-all ease-linear duration-300 -z-10'></span>
-                </motion.button>
+                <Button text={'Explore Collection'}/>
             </header>
 
         </main>
