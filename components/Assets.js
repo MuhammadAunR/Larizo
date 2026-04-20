@@ -89,4 +89,31 @@ const products = [
     },
 ];
 
-export { products } 
+export { products }
+
+import { Droplet, Droplets, Sparkles, Wind } from 'lucide-react'
+
+const experiences = [
+    {
+        icon: <Wind size={40} />,
+        title: "Top Notes",
+        desc: "The first impression — bright, fresh, and fleeting. Lasts 15–30 minutes.",
+    },
+    {
+        icon: <Droplets size={40} />,
+        title: "Heart Notes",
+        desc: "The soul of the fragrance — rich, full-bodied, and lasting for hours.",
+    },
+    {
+        icon: <Droplet size={40} />,
+        title: "Base Notes",
+        desc: "The foundation — deep, warm, and lingers on skin all day.",
+    },
+    {
+        icon: <Sparkles size={40} />,
+        title: "Sillage",
+        desc: "The trail you leave behind — the invisible signature of your scent.",
+    },
+];
+
+export { experiences }

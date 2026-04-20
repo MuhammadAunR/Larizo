@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Cart from "@/components/Cart";
 import AppWrapper from "./context/AppWrapper";
+import LenisWrapper from "@/components/LenisWrapper";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -34,11 +35,13 @@ export default function RootLayout({ children }) {
       className={`${cormorant.variable} ${inter.variable} ${script.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <AppWrapper>
-          <Navbar />
-          <Cart />
-          {children}
-        </AppWrapper>
+        <LenisWrapper>
+          <AppWrapper>
+            <Navbar />
+            <Cart />
+            {children}
+          </AppWrapper>
+        </LenisWrapper>
       </body>
     </html>
   );
