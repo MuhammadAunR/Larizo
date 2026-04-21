@@ -23,7 +23,7 @@ const CardUI = ({ product }) => {
             <div className={`absolute top-2 left-2 border-2 px-3 py-1 ${product.gender === 'Men' ? 'bg-blue-950/20 text-sm text-blue-950 border-blue-950/50' : product.gender === 'Unisex' ? 'bg-neutral-500/20 text-sm text-neutral-400 border-neutral-500/50' : 'bg-pink-950/20 text-sm text-pink-950 border-pink-950/50'}`}>
                 {product.gender}
             </div>
-            <div className='flex flex-col gap-1 bg-black/50 backdrop-blur-lg rounded-t-3xl w-full min-h-fit p-3 absolute -bottom-28 group-hover/card:bottom-0 transition-all ease-linear duration-500 cursor-pointer'>
+            <div className='flex flex-col gap-1 bg-black/50 backdrop-blur-lg rounded-t-3xl w-full min-h-fit p-3 absolute -bottom-28 group-hover/card:bottom-0 transition-all ease-linear duration-300 cursor-pointer'>
 
                 <div className='flex items-center justify-between py-3'>
                     <h3 title={product.name} className='font-serif text-2xl font-semibold truncate max-w-[60%]'>

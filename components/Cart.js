@@ -1,6 +1,6 @@
 'use client'
 import { useCart } from '@/app/context/CartContext'
-import { Trash, X } from 'lucide-react'
+import { ShoppingCart, Trash, X } from 'lucide-react'
 import React from 'react'
 import Button from './ButtonUi'
 import Image from 'next/image'
@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 
 const Cart = () => {
 
-    const { toggleCart, isCartOpen, cartItems, handleSubTotal } = useCart()
+    const { toggleCart, isCartOpen, cartItems, handleSubTotal, removeCartItem, handleItemDec, handleItemInc, handleCheckout } = useCart()
 
     return (
         <main className='w-full flex'>
@@ -25,14 +25,24 @@ const Cart = () => {
                         <X size={28} className='cursor-pointer hover:rotate-180 hover:text-accent transition-all ease-linear' />
                     </span>
                 </div>
-                <section className='h-135 overflow-y-auto my-5 space-y-2'>
+                <section className='h-135 overflow-y-auto my-5 space-y-1'>
+                    {cartItems.length === 0 && <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: false }}
+                        className='flex flex-col items-center justify-center mt-50'>
+                        <span><ShoppingCart size={70} color='grey' /></span>
+                        <span className='text-lg'>Your cart is empty</span>
+                    </motion.div>}
                     {cartItems.map(item => {
-                        return <div key={item.id} className='flex items-center gap-3 p-3 mx-2 hover:mx-0 transition-all ease-linear bg-background relative group'>
+                        return <div key={item.id} className='flex items-center gap-3 px-5 py-3 mx-1 hover:bg-background/50 transition-all ease-linear bg-background relative group'>
 
                             <motion.span
+                                onClick={() => removeCartItem(item)}
                                 whileTap={{ scale: 0.95 }}
-                                className='absolute top-2 right-2 group-hover:opacity-100 opacity-0 transition-opacity ease-linear cursor-pointer'>
-                                <Trash size={16} color='red' />
+                                className='absolute top-1 right-1 group-hover:opacity-100 opacity-0 transition-opacity ease-linear cursor-pointer'>
+                                <Trash size={14} color='red' />
                             </motion.span>
                             <div className='relative w-15 h-15 overflow-hidden shrink-0'>
                                 <Image
@@ -49,11 +59,15 @@ const Cart = () => {
                                 <span className='text-sm text-gray-400'>{item.type}</span>
                             </div>
 
-                            <span className='text-sm font-semibold whitespace-nowrap flex flex-col items-center justify-center'>
+                            <span className='text-sm font-semibold whitespace-nowrap gap-2 flex flex-col items-center justify-center'>
                                 <span className='text-accent'>
                                     <span className='text-[10px]'>PKR</span> {(item.price) * (item.quantity)}
                                 </span>
-                                <span className=''>QTY: {item.quantity}</span>
+                                <div className='flex'>
+                                    <span onClick={() => handleItemDec(item)} className='border px-3 py-1 font-bold hover:bg-surface transition-colors ease-linear cursor-pointer'>-</span>
+                                    <span className='border px-3 py-1 font-bold'>{item.quantity}</span>
+                                    <span onClick={() => handleItemInc(item)} className='border px-3 py-1 font-bold hover:bg-surface transition-colors ease-linear cursor-pointer'>+</span>
+                                </div>
                             </span>
 
                         </div>
@@ -64,7 +78,7 @@ const Cart = () => {
                         <h3 className='text-2xl font-semibold'>Subtotal</h3>
                         <span className='text-red-500 text-xl font-semibold'><span className='text-xs'>PKR</span> {handleSubTotal}</span>
                     </div>
-                    <span className='flex flex-col items-end'>
+                    <span onClick={() => { toggleCart(), handleCheckout() }} className='flex flex-col items-end'>
                         <Button text={'Checkout'} classes='px-7 py-2' />
                     </span>
                 </div>

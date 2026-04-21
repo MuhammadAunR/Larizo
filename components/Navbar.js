@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [yScroll, setYScroll] = useState(false)
-    const { toggleCart } = useCart()
+    const { toggleCart, cartItems } = useCart()
 
     const navOptions = [
         { option: "Home", path: "#home" },
@@ -51,8 +51,9 @@ const Navbar = () => {
                             <span className='absolute h-px w-0 group-hover:w-full bg-accent transition-all ease-linear left-0 bottom-0'></span>
                         </li>
                     })}
-                    <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer'>
+                    <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer relative'>
                         <ShoppingBag size={22} />
+                        <span className='absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 bg-accent flex items-center justify-center text-black'>{cartItems.length}</span>
                     </li>
                     <li className='lg:hidden'>
                         <Hamburger
