@@ -5,7 +5,7 @@ const AboutSection = () => {
     return (
         <main id='about' className='h-fit min-h-screen flex items-center justify-between gap-7 mx-5 lg:mx-10 py-14 max-lg:flex-col'>
             <div className='flex flex-col items-start gap-10'>
-                <h4 className='text-5xl font-semibold font-serif'>About Us</h4>
+                <h4 className='text-4xl md:text-5xl font-semibold font-serif'>About Us</h4>
                 <div className='flex flex-col items-start gap-5'>
                     <h2 className='text-4xl'>At <span className='font-serif font-bold text-accent'>Larizo</span>, nature is not just an inspiration — it is our language.</h2>
                     <p className='text-gray-400'>

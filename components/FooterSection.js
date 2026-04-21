@@ -38,7 +38,7 @@ const FooterSection = () => {
                 </div>
             </section>
 
-            <section className='flex items-center justify-center text-accent text-6xl sm:text-8xl md:text-9xl xl:text-[22rem]'>
+            <section className='flex items-center justify-center text-accent text-7xl sm:text-8xl md:text-9xl xl:text-[22rem]'>
                 <span className='text-center font-bold font-serif'>L</span>
                 <span className='text-center font-bold font-serif'>A</span>
                 <span className='text-center font-bold font-serif'>R</span>

@@ -6,7 +6,7 @@ const ExperienceSection = () => {
 
     <main className='w-10/12 mx-auto py-10'>
 
-      <h2 className='text-5xl font-semibold font-serif pt-20'>The Experience</h2>
+      <h2 className='text-4xl md:text-5xl font-semibold font-serif pt-20'>The Experience</h2>
 
       <section className='flex items-center justify-center flex-wrap gap-x-20 gap-y-2 py-10'>
 
