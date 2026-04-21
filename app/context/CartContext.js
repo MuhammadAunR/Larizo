@@ -44,17 +44,23 @@ const CartContext = ({ children }) => {
                     item.id === i.id ? { ...item, quantity: item.quantity + 1 } : item
                 )
             }
+            return prev
         })
-
     }
+
     const handleItemDec = (i) => {
         setCartItems(prev => {
             const exist = prev.find(item => item.id === i.id)
             if (exist) {
+                // remove item if quantity reaches 1
+                if (exist.quantity === 1) {
+                    return prev.filter(item => item.id !== i.id)
+                }
                 return prev.map(item =>
                     item.id === i.id ? { ...item, quantity: item.quantity - 1 } : item
                 )
             }
+            return prev
         })
     }
 

@@ -2,7 +2,6 @@
 import { useCart } from '@/app/context/CartContext'
 import { ShoppingCart, Trash, X } from 'lucide-react'
 import React from 'react'
-import Button from './ButtonUi'
 import Image from 'next/image'
 import { motion } from "framer-motion"
 
