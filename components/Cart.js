@@ -79,7 +79,12 @@ const Cart = () => {
                         <span className='text-red-500 text-xl font-semibold'><span className='text-xs'>PKR</span> {handleSubTotal}</span>
                     </div>
                     <span onClick={() => { toggleCart(), handleCheckout() }} className='flex flex-col items-end'>
-                        <Button text={'Checkout'} classes='px-7 py-2' />
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            className={`bg-accent text-black px-7 py-2 text-xl font-light uppercase cursor-pointer relative z-20 group hover:text-foreground transition-colors ease-linear duration-700 border-2 border-surface hover:border-accent`}>
+                            Checkout
+                            <span className='bg-surface absolute w-0 h-full left-0 top-0 group-hover:w-full transition-all ease-linear duration-300 -z-10'></span>
+                        </motion.button>
                     </span>
                 </div>
 
