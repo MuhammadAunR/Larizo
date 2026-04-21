@@ -6,7 +6,6 @@ import Hamburger from "@/components/Hamburger";
 import { useCart } from '@/app/context/CartContext';
 import { motion } from 'framer-motion';
 
-
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -21,9 +20,7 @@ const Navbar = () => {
         { option: "Contact", path: "#contact" },
     ];
 
-    const handleNavbarDropdown = () => {
-        setIsOpen(!isOpen)
-    }
+    const handleNavbarDropdown = () => setIsOpen(!isOpen)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,17 +29,28 @@ const Navbar = () => {
             } else {
                 setYScroll(false)
             }
+
+            const sections = ['home', 'collections', 'about', 'contact']
+            for (const id of sections) {
+                const el = document.getElementById(id)
+                if (!el) continue
+
+                const rect = el.getBoundingClientRect()
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    setSelectedTab(`#${id}`)
+                    break
+                }
+            }
         }
 
         window.addEventListener('scroll', handleScroll)
-
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     return (
         <>
             <nav className={`flex items-center justify-between py-5 px-5 md:px-10 fixed top-0 z-100 w-full transition-all ease-linear ${isOpen ? 'backdrop-blur-3xl' : 'backdrop-blur-none'} ${yScroll ? 'bg-black backdrop-blur-md h-20' : 'bg-black/10 h-25'}`}>
-                <div className={``}>
+                <div>
                     <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer text-accent'>Larizo</Link>
                 </div>
                 <ul className='flex items-center gap-4 lg:gap-10'>
@@ -67,32 +75,23 @@ const Navbar = () => {
                     ))}
                     <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer relative'>
                         <ShoppingBag size={22} />
-                        {cartItems.length > 0 && <span className='absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 bg-accent flex items-center justify-center text-black'>{cartItems.length}</span>
+                        {cartItems.length > 0 &&
+                            <span className='absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 bg-accent flex items-center justify-center text-black'>{cartItems.length}</span>
                         }
                     </li>
                     <li className='lg:hidden'>
-                        <Hamburger
-                            isOpen={isOpen}
-                            onClick={handleNavbarDropdown} />
+                        <Hamburger isOpen={isOpen} onClick={handleNavbarDropdown} />
                     </li>
                 </ul>
-            </nav >
+            </nav>
             <section className={`fixed z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-0'} overflow-hidden`}>
                 <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
-                    {navOptions.map(opt => {
-                        return <li key={opt.path} className='relative group'>
-                            <motion.a
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                href={opt.path}
-                                onClick={handleNavbarDropdown}
-                                className='uppercase text-surface transition-colors ease-linear cursor-pointer'>{opt.option}
-                            </motion.a>
+                    {navOptions.map(opt => (
+                        <li key={opt.path} className='relative group'>
+                            <a href={opt.path} onClick={handleNavbarDropdown} className='uppercase text-surface transition-colors ease-linear cursor-pointer'>{opt.option}</a>
                             <span className='absolute h-px w-0 group-hover:w-full bg-surface transition-all ease-linear left-0 bottom-0'></span>
                         </li>
-                    })}
+                    ))}
                 </ul>
             </section>
         </>

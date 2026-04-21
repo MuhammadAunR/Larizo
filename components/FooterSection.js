@@ -36,19 +36,19 @@ const FooterSection = () => {
                     <div className='flex flex-col gap-7'>
                         <h6 className='text-2xl font-serif'>Company</h6>
                         <ul className='flex flex-col gap-1 font-light'>
-                            <a href='#home'>Home</a>
-                            <a href='#collection'>Collection</a>
-                            <a href='#about'>About</a>
-                            <a href='#contact'>Contact</a>
+                            <a href='#home' className='hover:text-accent transition-colors ease-linear'>Home</a>
+                            <a href='#collections' className='hover:text-accent transition-colors ease-linear'>Collection</a>
+                            <a href='#about' className='hover:text-accent transition-colors ease-linear'>About</a>
+                            <a href='#contact' className='hover:text-accent transition-colors ease-linear'>Contact</a>
                         </ul>
                     </div>
                     <div className='flex flex-col gap-7'>
                         <h6 className='text-2xl font-serif'>Social</h6>
                         <ul className='flex flex-col gap-1 font-light'>
-                            <li>Tiktok</li>
-                            <li>Instagram</li>
-                            <li>Facebook</li>
-                            <li>Youtube</li>
+                            <li className='hover:text-accent transition-colors ease-linear cursor-pointer'>TikTok</li>
+                            <li className='hover:text-accent transition-colors ease-linear cursor-pointer'>Instagram</li>
+                            <li className='hover:text-accent transition-colors ease-linear cursor-pointer'>Facebook</li>
+                            <li className='hover:text-accent transition-colors ease-linear cursor-pointer'>Youtube</li>
                         </ul>
                     </div>
 
