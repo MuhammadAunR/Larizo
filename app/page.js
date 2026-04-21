@@ -1,3 +1,4 @@
+import AboutSection from "@/components/AboutSection";
 import Collection from "@/components/Collection";
 import ExperienceSection from "@/components/ExperienceSection";
 import FooterSection from "@/components/FooterSection";
@@ -6,16 +7,20 @@ import HeroSection from "@/components/HeroSection";
 export default function Home() {
   return (
     <>
-      <main>
+      <header>
         <HeroSection />
-        <Collection />
+      </header>
 
+      <main>
+        <Collection />
         <section className="bg-surface">
-        <ExperienceSection />
+          <ExperienceSection />
         </section>
+        <AboutSection />
       </main>
+      
       <footer>
-        <FooterSection/>
+        <FooterSection />
       </footer>
     </>
   )

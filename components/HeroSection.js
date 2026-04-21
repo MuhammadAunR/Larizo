@@ -5,7 +5,7 @@ import Button from './ButtonUi'
 
 const HeroSection = () => {
     return (
-        <main id='home' className=''>
+        <main id='home'>
 
             <a href="https://wa.me/923286536520" target="_blank" className='fixed bottom-7 right-7 z-100 bg-green-600 rounded-full p-2'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' width="32" height="32" viewBox="0 0 32 32">
@@ -16,7 +16,7 @@ const HeroSection = () => {
                 <img src="../larizoHeroSection.webp" alt="Hero" className='brightness-70 blur-sm h-full w-full' />
             </div>
 
-            <header className='flex flex-col gap-5 items-center justify-center absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
+            <header className='flex flex-col gap-5 items-center justify-center absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 max-md:w-10/12'>
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
