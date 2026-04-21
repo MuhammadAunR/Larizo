@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useContext, useEffect, useState } from "react"
+import React, { createContext, useContext, useState } from "react"
 
 export const ContextProvider = createContext()
 export const useCart = () => useContext(ContextProvider)
@@ -30,7 +30,10 @@ const CartContext = ({ children }) => {
     }
 
     const handleCheckout = () => {
+        if (cartItems.length === 0) return
         setCartItems([])
+        const msg = cartItems.map(i => `${i.name} x${i.quantity}`).join('%0A')
+        window.open(`https://wa.me/92386536520?text=Order:%0A${msg}`)
     }
 
     const handleItemInc = (i) => {
