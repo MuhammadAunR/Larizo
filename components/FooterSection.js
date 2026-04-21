@@ -1,8 +1,25 @@
 'use client'
 import React from 'react'
 import Button from './ButtonUi'
+import { motion } from "framer-motion"
 
 const FooterSection = () => {
+
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    }
+
+    const item = {
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0 }
+    }
+
     return (
         <main id='contact' className='bg-surface h-fit rounded-2xl my-6 mx-2 md:m-12'>
 
@@ -38,14 +55,23 @@ const FooterSection = () => {
                 </div>
             </section>
 
-            <section className='flex items-center justify-center text-accent text-7xl sm:text-8xl md:text-9xl xl:text-[22rem]'>
-                <span className='text-center font-bold font-serif'>L</span>
-                <span className='text-center font-bold font-serif'>A</span>
-                <span className='text-center font-bold font-serif'>R</span>
-                <span className='text-center font-bold font-serif'>I</span>
-                <span className='text-center font-bold font-serif'>Z</span>
-                <span className='text-center font-bold font-serif'>O</span>
-            </section>
+            <motion.section
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false }}
+                className='flex items-center justify-center text-accent text-7xl sm:text-8xl md:text-9xl xl:text-[22rem]'
+            >
+                {['L', 'A', 'R', 'I', 'Z', 'O'].map(char => (
+                    <motion.span
+                        variants={item}
+                        key={char}
+                        className='text-center font-bold font-serif'
+                    >
+                        {char}
+                    </motion.span>
+                ))}
+            </motion.section>
 
             <div className='w-full bg-foreground rounded-b-2xl text-black text-center py-3 text-sm'>
                 &copy; {new Date().getFullYear()} <span className='font-serif text-lg font-bold'>Larizo</span>. Crafted with passion for timeless fragrances.

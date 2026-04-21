@@ -39,7 +39,7 @@ const Collection = () => {
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className='py-7 flex items-center justify-center gap-3 flex-wrap'>
                     {collections.map(collection => {
                         return <motion.div key={collection.name} variants={item} className='relative w-60 h-80 overflow-hidden group'>
@@ -66,7 +66,7 @@ const Collection = () => {
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className='flex items-center justify-center gap-3 flex-wrap pt-10'>
                     {products.map(prod => {
                         return <motion.span key={prod.id} variants={item}>
