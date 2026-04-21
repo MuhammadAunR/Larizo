@@ -5,7 +5,7 @@ A modern, responsive website built for **Larizo**, a real perfume brand based in
 ---
 
 ## Live Demo
-🔗 [larizo.vercel.app](https://larizo.vercel.app) *(update with your actual URL)*
+🔗 [larizo.vercel.app](https://larizo.vercel.app)
 
 ---
 
@@ -48,4 +48,4 @@ Larizo brand identity is used with creative intent for demonstration only.
 
 **Muhammad Aun**
 MERN Stack & React Developer
-[muhammad-aun.vercel.app](https://larizo.vercel.app) · [GitHub](https://github.com/MuhammadAunR)
+· [GitHub](https://github.com/MuhammadAunR)
