@@ -33,7 +33,9 @@ const HeroSection = () => {
                     className='text-center text-lg font-light'>Fragrances that define your presence. Crafted for lasting impressions, every scent reflects elegance, confidence, and individuality.
                 </motion.p>
 
-                <Button text={'Explore Collection'} />
+                <a href='#collections'>
+                    <Button text={'Explore Collection'} />
+                </a>
             </header>
 
         </main>

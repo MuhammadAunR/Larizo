@@ -31,7 +31,7 @@ const Collection = () => {
     }
 
     return (
-        <main id='collections' className='w-10/12 mx-auto py-10'>
+        <main className='w-10/12 mx-auto py-10'>
 
             <section>
                 <h2 className='text-4xl md:text-5xl font-semibold font-serif pt-20'>Scent Families</h2>
@@ -59,7 +59,7 @@ const Collection = () => {
                 </motion.div>
             </section>
 
-            <section className='py-10'>
+            <section id='collections' className='py-10'>
                 <h2 className='text-4xl md:text-5xl font-semibold font-serif pt-20'>Our Collections</h2>
 
                 <motion.div
