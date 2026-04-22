@@ -18,9 +18,9 @@ const Cart = () => {
 
             <aside
                 style={{ backgroundColor: 'var(--color-surface)' }}
-                className={`h-screen w-100 fixed top-0 right-0 z-[200] flex flex-col transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`h-screen w-100 fixed top-0 right-0 z-200 flex flex-col transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
-                {/* TOP — always stays at top */}
+
                 <div className='flex items-center justify-between px-5 py-6.5 border-b-2 border-accent shrink-0'>
                     <h3 className='text-2xl font-semibold'>Your Cart</h3>
                     <span onClick={toggleCart}>
@@ -28,7 +28,6 @@ const Cart = () => {
                     </span>
                 </div>
 
-                {/* MIDDLE — takes all remaining space */}
                 <section className='flex-1 overflow-y-auto py-5 space-y-1'>
                     {cartItems.length === 0 && (
                         <motion.div
@@ -80,7 +79,6 @@ const Cart = () => {
                     ))}
                 </section>
 
-                {/* BOTTOM — always stays at bottom */}
                 <div className='px-5 space-y-5 border-t-2 border-accent py-4 shrink-0'>
                     <div className='flex items-center justify-between'>
                         <h3 className='text-2xl font-semibold'>Subtotal</h3>
