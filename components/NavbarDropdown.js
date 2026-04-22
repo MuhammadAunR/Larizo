@@ -11,8 +11,6 @@ const NavbarDropdown = () => {
     const { isOpen, toggleNavbar } = useNavContext()
     const { toggleCart, cartItems } = useCart()
 
-    console.log('Dropdown isOpen:', isOpen)
-
     const navOptions = [
         { option: "Home", path: "#home" },
         { option: "Collections", path: "#collections" },

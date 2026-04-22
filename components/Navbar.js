@@ -21,8 +21,6 @@ const Navbar = () => {
         { option: "Contact", path: "#contact" },
     ];
 
-    console.log('Navbar isOpen:', isOpen)
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
