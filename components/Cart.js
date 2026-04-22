@@ -11,29 +11,29 @@ const Cart = () => {
     const { toggleCart, isCartOpen, cartItems, handleSubTotal, removeCartItem, handleItemDec, handleItemInc, handleCheckout } = useCart()
 
     useEffect(() => {
-        if (isCartOpen) {
-            document.body.style.overflow = 'hidden';
-            window.lenis?.stop();
-        } else {
-            document.body.style.overflow = 'auto';
-            window.lenis?.start();
-        }
+  if (isCartOpen) {
+    document.body.style.overflow = 'hidden';
+    window.lenis?.stop();
+  } else {
+    document.body.style.overflow = 'auto';
+    window.lenis?.start();
+  }
 
-        return () => {
-            document.body.style.overflow = 'auto';
-            window.lenis?.start();
-        };
-    }, [isCartOpen]);
+  return () => {
+    document.body.style.overflow = 'auto';
+    window.lenis?.start();
+  };
+}, [isCartOpen]);
 
     return (
         <main className='w-full flex'>
 
-            <section onClick={toggleCart} className={`bg-surface/50 backdrop-blur-lg h-screen fixed top-0 z-200 w-[calc(100%-400px)] ${isCartOpen ? 'block' : 'hidden'}`}>
+            <section onClick={toggleCart} className={`bg-surface/50 backdrop-blur-lg h-screen fixed top-0 z-200 w-full ${isCartOpen ? 'block' : 'hidden'}`}>
             </section>
 
             <aside
                 style={{ backgroundColor: 'var(--color-surface)' }}
-                className={`h-screen w-100 fixed top-0 right-0 z-200 flex flex-col transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`h-screen w-full max-w-100 fixed top-0 right-0 z-200 flex flex-col transition-all ease-linear ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
 
                 <div className='flex items-center justify-between px-5 py-6.5 border-b-2 border-accent shrink-0'>
