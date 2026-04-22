@@ -1,7 +1,7 @@
 'use client'
 import { useCart } from '@/app/context/CartContext'
 import { ShoppingCart, Trash, X } from 'lucide-react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from "framer-motion"
 
@@ -9,6 +9,21 @@ import { motion } from "framer-motion"
 const Cart = () => {
 
     const { toggleCart, isCartOpen, cartItems, handleSubTotal, removeCartItem, handleItemDec, handleItemInc, handleCheckout } = useCart()
+
+    useEffect(() => {
+        if (isCartOpen) {
+            document.body.style.overflow = 'hidden';
+            window.lenis?.stop();
+        } else {
+            document.body.style.overflow = 'auto';
+            window.lenis?.start();
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+            window.lenis?.start();
+        };
+    }, [isCartOpen]);
 
     return (
         <main className='w-full flex'>

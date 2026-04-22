@@ -13,6 +13,8 @@ const LenisWrapper = ({ children }) => {
       touchMultiplier: 2,
     });
 
+    window.lenis = lenis;
+
     let rafId;
 
     function raf(time) {
