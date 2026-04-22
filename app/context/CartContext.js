@@ -33,7 +33,7 @@ const CartContext = ({ children }) => {
         if (cartItems.length === 0) return
         setCartItems([])
         const msg = cartItems.map(i => `${i.name} x${i.quantity}`).join('%0A')
-        window.open(`https://wa.me/92386536520?text=Order:%0A${msg}`)
+        window.open(`https://wa.me/923286536520?text=Order:%0A${msg}`)
     }
 
     const handleItemInc = (i) => {
