@@ -52,7 +52,6 @@ const CartContext = ({ children }) => {
         setCartItems(prev => {
             const exist = prev.find(item => item.id === i.id)
             if (exist) {
-                // remove item if quantity reaches 1
                 if (exist.quantity === 1) {
                     return prev.filter(item => item.id !== i.id)
                 }

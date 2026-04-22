@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Hamburger = ({ color = '#E6E6E6', size = 26, isOpen, onClick }) => {
-  if (isOpen) {
-    color = '#0A0A0B'
-  }
   return (
     <StyledWrapper $size={size} $color={color} onClick={onClick}>
       <div className="burger">

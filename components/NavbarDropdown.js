@@ -11,6 +11,7 @@ const NavbarDropdown = () => {
     const { isOpen, toggleNavbar } = useNavContext()
     const { toggleCart, cartItems } = useCart()
 
+    console.log('Dropdown isOpen:', isOpen)
 
     const navOptions = [
         { option: "Home", path: "#home" },
@@ -20,13 +21,13 @@ const NavbarDropdown = () => {
     ];
 
     return (
-        <section className={`fixed z-100 h-screen bg-accent w-full text-black transition-all ease-linear $ ${isOpen ? 'translate-y-0' : 'translate-y-full'} overflow-hidden`}>
+        <section className={`fixed z-100 h-screen bg-surface w-full text-white transition-all ease-linear $ ${isOpen ? 'translate-y-0' : 'translate-y-full'} overflow-hidden`}>
 
 
             <ul className='flex items-center justify-between px-10 gap-4 lg:gap-10 py-5'>
 
                 <div>
-                    <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer text-background'>Larizo</Link>
+                    <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer text-foreground'>Larizo</Link>
                 </div>
                 <div className='flex items-center gap-4'>
                     <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer relative'>
@@ -44,8 +45,8 @@ const NavbarDropdown = () => {
             <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
                 {navOptions.map(opt => (
                     <li key={opt.path} className='relative group'>
-                        <a href={opt.path} onClick={toggleNavbar} className='uppercase text-surface transition-colors ease-linear cursor-pointer'>{opt.option}</a>
-                        <span className='absolute h-px w-0 group-hover:w-full bg-surface transition-all ease-linear left-0 bottom-0'></span>
+                        <a href={opt.path} onClick={toggleNavbar} className='uppercase text-foreground hover:text-accent transition-colors ease-linear cursor-pointer'>{opt.option}</a>
+                        <span className='absolute h-px w-0 group-hover:w-full bg-accent transition-all ease-linear left-0 bottom-0'></span>
                     </li>
                 ))}
             </ul>

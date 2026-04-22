@@ -21,6 +21,8 @@ const Navbar = () => {
         { option: "Contact", path: "#contact" },
     ];
 
+    console.log('Navbar isOpen:', isOpen)
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -75,7 +77,9 @@ const Navbar = () => {
                     <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer relative'>
                         <ShoppingBag size={22} />
                         {cartItems.length > 0 &&
-                            <span className={`absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 ${isOpen ? 'text-black' : 'bg-accent text-black'} flex items-center justify-center`}>{cartItems.length}</span>
+                            <span className={`absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 flex items-center justify-center transition-colors ease-linear duration-300 ${isOpen ? 'bg-black text-foreground' : 'bg-accent text-black'}`}>
+                                {cartItems.length}
+                            </span>
                         }
                     </li>
                     <li className='lg:hidden'>
