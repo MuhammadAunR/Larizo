@@ -24,6 +24,7 @@ const AboutSection = () => {
                     alt='About Section Photo'
                     fill
                     loading='lazy'
+                    sizes='240px'
                     className='object-cover rounded-2xl'
                 />
             </div>
