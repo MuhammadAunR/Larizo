@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Hamburger = ({ color = '#E6E6E6', size = 26, isOpen, onClick }) => {
-    return (
-        <StyledWrapper $size={size} $color={color} onClick={onClick}>
-            <div className="burger">
-                <span className={isOpen ? 'open-1' : ''} />
-                <span className={isOpen ? 'open-2' : ''} />
-                <span className={isOpen ? 'open-3' : ''} />
-            </div>
-        </StyledWrapper>
-    );
+  if (isOpen) {
+    color = '#0A0A0B'
+  }
+  return (
+    <StyledWrapper $size={size} $color={color} onClick={onClick}>
+      <div className="burger">
+        <span className={isOpen ? 'open-1' : ''} />
+        <span className={isOpen ? 'open-2' : ''} />
+        <span className={isOpen ? 'open-3' : ''} />
+      </div>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`

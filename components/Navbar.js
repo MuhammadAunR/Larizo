@@ -2,16 +2,17 @@
 import { ShoppingBag } from 'lucide-react';
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
-import Hamburger from "@/components/Hamburger";
+import HamburgerComp from "@/components/HamburgerComp";
 import { useCart } from '@/app/context/CartContext';
 import { motion } from 'framer-motion';
+import { useNavContext } from '@/app/context/NavbarContext';
 
 const Navbar = () => {
 
-    const [isOpen, setIsOpen] = useState(false)
     const [yScroll, setYScroll] = useState(false)
     const [selectedTab, setSelectedTab] = useState('#home')
     const { toggleCart, cartItems } = useCart()
+    const { toggleNavbar, isOpen } = useNavContext()
 
     const navOptions = [
         { option: "Home", path: "#home" },
@@ -19,8 +20,6 @@ const Navbar = () => {
         { option: "About", path: "#about" },
         { option: "Contact", path: "#contact" },
     ];
-
-    const handleNavbarDropdown = () => setIsOpen(!isOpen)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -76,24 +75,15 @@ const Navbar = () => {
                     <li onClick={toggleCart} className='hover:text-accent transition-colors ease-linear cursor-pointer relative'>
                         <ShoppingBag size={22} />
                         {cartItems.length > 0 &&
-                            <span className='absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 bg-accent flex items-center justify-center text-black'>{cartItems.length}</span>
+                            <span className={`absolute w-5 h-5 rounded-full text-xs -top-2 -left-2 ${isOpen ? 'text-black' : 'bg-accent text-black'} flex items-center justify-center`}>{cartItems.length}</span>
                         }
                     </li>
                     <li className='lg:hidden'>
-                        <Hamburger isOpen={isOpen} onClick={handleNavbarDropdown} />
+                        <HamburgerComp isOpen={isOpen} onClick={toggleNavbar} />
                     </li>
                 </ul>
             </nav>
-            <section className={`fixed z-100 top-21 bg-accent backdrop-blur-3xl w-full text-black transition-all ease-linear ${isOpen ? 'h-[calc(100%-85px)]' : 'h-0'} overflow-hidden`}>
-                <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
-                    {navOptions.map(opt => (
-                        <li key={opt.path} className='relative group'>
-                            <a href={opt.path} onClick={handleNavbarDropdown} className='uppercase text-surface transition-colors ease-linear cursor-pointer'>{opt.option}</a>
-                            <span className='absolute h-px w-0 group-hover:w-full bg-surface transition-all ease-linear left-0 bottom-0'></span>
-                        </li>
-                    ))}
-                </ul>
-            </section>
+
         </>
     )
 }

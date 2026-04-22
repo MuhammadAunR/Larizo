@@ -5,6 +5,7 @@ import Cart from "@/components/Cart";
 import AppWrapper from "./context/AppWrapper";
 import LenisWrapper from "@/components/LenisWrapper";
 import ScrollToTop from "@/components/ScrollToTop";
+import NavbarDropdown from "@/components/NavbarDropdown";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <ScrollToTop />
           <AppWrapper>
             <Navbar />
+            <NavbarDropdown />
             <Cart />
             {children}
           </AppWrapper>

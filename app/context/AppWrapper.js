@@ -1,11 +1,14 @@
 'use client'
 import React from 'react'
 import CartContext from './CartContext'
+import NavbarContext from './NavbarContext'
 
 const AppWrapper = ({ children }) => {
     return (
         <CartContext>
-            {children}
+            <NavbarContext>
+                {children}
+            </NavbarContext>
         </CartContext>
     )
 }
