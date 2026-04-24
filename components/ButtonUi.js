@@ -1,9 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const Button = ({ text, classes='px-7 py-4' }) => {
+const Button = ({ addFramer = 'yes', text, classes = 'px-7 py-4' }) => {
+    const framerProps = addFramer === 'yes' ? {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.6 },
+        viewport: { once: true },
+        whileTap: { scale: 0.95 }
+    } : {}
     return (
         <motion.button
+            {...framerProps}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
