@@ -3,7 +3,7 @@ import React from 'react'
 
 const AboutSection = () => {
     return (
-        <main id='about' className='h-fit min-h-screen flex items-center justify-between gap-7 mx-5 lg:mx-10 py-14 max-lg:flex-col'>
+        <main id='about' className='h-fit flex items-center justify-between gap-7 mx-5 lg:mx-10 py-14 max-lg:flex-col'>
             <div className='flex flex-col items-start gap-10'>
                 <h4 className='text-4xl md:text-5xl font-semibold font-serif'>About Us</h4>
                 <div className='flex flex-col items-start gap-5'>
