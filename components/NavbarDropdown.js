@@ -58,7 +58,7 @@ const NavbarDropdown = () => {
             <ul className='flex flex-col items-center justify-center gap-3 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
                 {navOptions.map(opt => (
                     <li key={opt.path} className='relative group'>
-                        <a href={opt.path} onClick={toggleNavbar} className='uppercase text-foreground hover:text-accent transition-colors ease-linear cursor-pointer text-xl md:text-2xl'>{opt.option}</a>
+                        <a href={opt.path} onClick={toggleNavbar} className='uppercase text-foreground hover:text-accent transition-colors ease-linear cursor-pointer text-2xl'>{opt.option}</a>
                         <span className='absolute h-px w-0 group-hover:w-full bg-accent transition-all ease-linear left-0 bottom-0'></span>
                     </li>
                 ))}
