@@ -94,7 +94,7 @@ const Cart = () => {
                     ))}
                 </section>
 
-                <div className='px-5 space-y-5 border-t-2 border-accent py-4 shrink-0'>
+                <div className='px-5 space-y-5 border-t-2 border-accent py-4 shrink-0 sticky bottom-0 w-full'>
                     <div className='flex items-center justify-between'>
                         <h3 className='text-2xl font-semibold'>Subtotal</h3>
                         <span className='text-red-500 text-xl font-semibold'>
