@@ -1,5 +1,6 @@
 'use client'
 import React, { createContext, useContext, useState } from "react"
+import { toast } from "react-toastify"
 
 export const ContextProvider = createContext()
 export const useCart = () => useContext(ContextProvider)
@@ -27,13 +28,20 @@ const CartContext = ({ children }) => {
             }
             return [...prev, { ...i, quantity: 1 }]
         })
+        toast.success('Added to cart')
     }
 
     const handleCheckout = () => {
         if (cartItems.length === 0) return
-        setCartItems([])
-        const msg = cartItems.map(i => `${i.name} x${i.quantity}`).join('%0A')
-        window.open(`https://wa.me/923286536520?text=Order:%0A${msg}`)
+        const confirm = window.confirm('Continue Checkout')
+        if (confirm) {
+            setCartItems([])
+            const msg = cartItems.map(i => `${i.name} x${i.quantity}`).join('%0A')
+            window.open(`https://wa.me/923286536520?text=Order:%0A${msg}`)
+            toast.success('Payment Successful')
+        }else{
+            toast.info('Checkout cancelled')
+        }
     }
 
     const handleItemInc = (i) => {

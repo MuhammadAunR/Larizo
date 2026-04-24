@@ -6,6 +6,7 @@ import AppWrapper from "./context/AppWrapper";
 import LenisWrapper from "@/components/LenisWrapper";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavbarDropdown from "@/components/NavbarDropdown";
+import ReactToastContainer from "@/components/ReactToastContainer";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -38,13 +39,15 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <LenisWrapper>
-        <ScrollToTop />
-          <AppWrapper>
-            <Navbar />
-            <NavbarDropdown />
-            <Cart />
-            {children}
-          </AppWrapper>
+          <ScrollToTop />
+          <ReactToastContainer>
+            <AppWrapper>
+              <Navbar />
+              <NavbarDropdown />
+              <Cart />
+              {children}
+            </AppWrapper>
+          </ReactToastContainer>
         </LenisWrapper>
       </body>
     </html>
