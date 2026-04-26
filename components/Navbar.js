@@ -48,7 +48,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`flex items-center justify-between py-5 px-5 md:px-10 fixed top-0 z-100 w-full transition-all ease-linear ${isOpen ? 'backdrop-blur-3xl' : 'backdrop-blur-none'} ${yScroll ? 'bg-black backdrop-blur-md h-20' : 'bg-black/10 h-25'}`}>
+            <nav className={`flex items-center justify-between py-5 px-5 md:px-10 fixed top-0 z-100 w-full transition-all ease-linear ${yScroll ? 'bg-black backdrop-blur-md h-20' : 'bg-black/10 h-25'}`}>
                 <div>
                     <Link href={'/'} className='font-serif font-bold text-5xl cursor-pointer text-accent'>Larizo</Link>
                 </div>

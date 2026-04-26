@@ -34,7 +34,7 @@ const NavbarDropdown = () => {
         }, [isOpen]);
 
     return (
-        <section className={`fixed z-100 h-screen bg-surface w-full text-white transition-all ease-linear $ ${isOpen ? 'translate-y-0' : 'translate-y-full'} overflow-hidden`}>
+        <section className={`fixed z-100 h-screen bg-surface w-full text-white transition-all ease-linear $ ${isOpen ? 'translate-y-0' : '-translate-y-full'} overflow-hidden`}>
 
 
             <ul className='flex items-center justify-between px-5 md:px-10 gap-4 lg:gap-10 py-5'>

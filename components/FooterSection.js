@@ -85,7 +85,7 @@ const FooterSection = () => {
                 variants={container}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className='flex items-center justify-center text-accent text-7xl sm:text-8xl md:text-9xl xl:text-[22rem]'
             >
                 {['L', 'A', 'R', 'I', 'Z', 'O'].map(char => (
